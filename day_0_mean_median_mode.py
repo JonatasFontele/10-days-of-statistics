@@ -1,16 +1,17 @@
-import statistics
+# import statistics
+# from scipy import stats
 from collections import Counter
 
 
 def mean(x):
     # return round(statistics.mean(x), 1)
-
+    # or
     return round(sum(x) / len(x), 1)
 
 
 def median(x):
     # return round(statistics.median(x), 1)
-
+    # or
     # floor division operator // to get an integer and use it as an index
     index = len(x) // 2
     # Sample with an odd number of observations
@@ -21,15 +22,15 @@ def median(x):
 
 
 def mode(x):
-    # return statistics.mode(sorted(x))         works only Python 3.8 above
-
+    # return ''.join(map(str, stats.mode(x)[0]))
+    # or
     count = Counter(sorted(x))
     for key, value in count.items():
         # most_common(number of tuples)[list index][tuple index]
         if value == count.most_common(1)[0][1]:
             return key
 
-    # return [key for key, value in count.items() if value == count.most_common(1)[0][1]]
+    # return [key for key, value in count.items() if value == count.most_common(1)[0][1]]   Doesn't work completely
 
 
 def validate(n, x):
