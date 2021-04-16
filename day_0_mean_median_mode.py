@@ -23,8 +23,13 @@ def median(x):
 def mode(x):
     # return statistics.mode(sorted(x))         works only Python 3.8 above
 
-    c = Counter(x)
-    return [k for k, v in c.items() if v == c.most_common(1)[0][1]]
+    count = Counter(sorted(x))
+    for key, value in count.items():
+        # most_common(number of tuples)[list index][tuple index]
+        if value == count.most_common(1)[0][1]:
+            return key
+
+    # return [key for key, value in count.items() if value == count.most_common(1)[0][1]]
 
 
 def validate(n, x):
