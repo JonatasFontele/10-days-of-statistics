@@ -1,29 +1,18 @@
-#!/bin/python3
-
-import math
-import os
-import random
-import re
-import sys
-
-#
-# Complete the 'interQuartile' function below.
-#
-# The function accepts following parameters:
-#  1. INTEGER_ARRAY values
-#  2. INTEGER_ARRAY freqs
-#
+import statistics
 
 
-def interQuartile(values, freqs):
-    pass # Print your answer to 1 decimal place within this function
+def inter_quartile(values, freqs):
+    s = [values * freqs for values, freqs in zip(values, freqs)]
+    s.sort()
+    Q1, Q2, Q3 = [quartil for quartil in statistics.quantiles(s)]
+    return round(Q3 - Q1, 1)
 
 
 def main():
     n = int(input().strip())
     val = list(map(int, input().rstrip().split()))
     freq = list(map(int, input().rstrip().split()))
-    interQuartile(val, freq)
+    print(inter_quartile(val, freq))
 
 
 if __name__ == "__main__":
