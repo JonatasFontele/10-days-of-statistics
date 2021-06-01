@@ -2,9 +2,17 @@ import statistics
 
 
 def inter_quartile(values, freqs):
-    s = [values * freqs for values, freqs in zip(values, freqs)]
+    s = []
+    for values, freqs in zip(values, freqs):
+        for _ in range(freqs):
+            s.append(values)
+    print(s)
     s.sort()
-    Q1, Q2, Q3 = [quartil for quartil in statistics.quantiles(s)]
+    print(s)
+    Q1, Q2, Q3 = [quartil for quartil in statistics.quantiles(s, n=4, method="inclusive")]
+    print(Q1)
+    print(Q2)
+    print(Q3)
     return round(Q3 - Q1, 1)
 
 
