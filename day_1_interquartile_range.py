@@ -1,19 +1,17 @@
 import statistics
+# from scipy import stats
 
 
 def inter_quartile(values, freqs):
     s = []
     for values, freqs in zip(values, freqs):
-        for _ in range(freqs):
-            s.append(values)
-    print(s)
+        s += [values] * freqs
     s.sort()
-    print(s)
-    Q1, Q2, Q3 = [quartil for quartil in statistics.quantiles(s, n=4, method="inclusive")]
-    print(Q1)
-    print(Q2)
-    print(Q3)
-    return round(Q3 - Q1, 1)
+    # Should work, but hackerrank is outdated
+    Q1, Q2, Q3 = [int(quartil) for quartil in statistics.quantiles(s, n=4, method="inclusive")]
+    return round(float(Q3 - Q1), 1)
+    # or just
+    # return stats.iqr(s, interpolation='midpoint')
 
 
 def main():
