@@ -1,6 +1,4 @@
-# import statistics
-from statistics import median
-import numpy as np
+from statistics import median, quantiles
 
 
 def quartiles(arr):
@@ -12,7 +10,7 @@ def quartiles(arr):
     print(int(Q2))
     print(int(Q3))
     # or
-    # return [print(int(quartil)) for quartil in statistics.quantiles(arr, n=4, method="exclusive")]
+    # return [print(int(quartil)) for quartil in quantiles(arr, n=4, method="exclusive")]
     # Quartiles go from 1 to 4 and Quantiles can go from anything to anything.
     # The default quantiles() is to set n to 4 (quartiles)
     # “inclusive” is used for describing population or samples that are known to include the most extreme values
