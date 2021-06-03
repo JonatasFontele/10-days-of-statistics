@@ -22,7 +22,7 @@ def median(x):
 
 
 def mode(x):
-    # return ''.join(map(str, stats.mode(x)[0]))
+    # return int(stats.mode(x)[0])
     # or
     count = Counter(sorted(x))
     for key, value in count.items():
