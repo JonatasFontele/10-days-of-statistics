@@ -25,12 +25,9 @@ def mode(x):
     # return int(stats.mode(x)[0])
     # or
     count = Counter(sorted(x))
-    for key, value in count.items():
-        # most_common(number of tuples)[list index][tuple index]
-        if value == count.most_common(1)[0][1]:
-            return key
-
-    # return [key for key, value in count.items() if value == count.most_common(1)[0][1]]   Doesn't work completely
+    # most_common(number of tuples)[list index][tuple index]
+    mode_list = [key for key, value in count.items() if value == count.most_common(1)[0][1]]
+    return mode_list[0]
 
 
 def validate(n, x):
