@@ -2,6 +2,18 @@ from itertools import product
 from random import randint
 
 
+# Recursive function to return GCD(MDC) of a and b
+def gcd(a, b):
+    if a == 0:
+        return b
+    return gcd(b % a, a)
+
+
+# Function to return LCM(MMC) of two numbers
+def lcm(a, b):
+    return (a / gcd(a, b)) * b
+
+
 def calculate_dice_prob():
     numbers = [1, 2, 3, 4, 5, 6]
     permutation_list = list(product(numbers, repeat=2))  # Specify the number of characters that each combination has
@@ -9,7 +21,10 @@ def calculate_dice_prob():
     for subset in permutation_list:
         if subset[0] + subset[1] <= 9:
             event_list.append(subset)  # tuple returned with a match per loop
-    return len(event_list)/len(permutation_list)
+    numerator = int(len(event_list)/gcd(len(event_list), len(permutation_list)))
+    denominator = int(len(permutation_list)/gcd(len(event_list), len(permutation_list)))
+    # For fractional representation
+    return f"{numerator}/{denominator}"
 
 
 def roll_the_dice(n_simulations=100000):
