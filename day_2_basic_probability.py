@@ -9,11 +9,6 @@ def gcd(a, b):
     return gcd(b % a, a)
 
 
-# Function to return LCM(MMC) of two numbers
-def lcm(a, b):
-    return (a / gcd(a, b)) * b
-
-
 def calculate_dice_prob():
     numbers = [1, 2, 3, 4, 5, 6]
     permutation_list = list(product(numbers, repeat=2))  # Specify the number of characters that each combination has
