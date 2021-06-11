@@ -9,7 +9,7 @@ def weighted_mean(x, w):
 
 
 def main():
-    n = int(input())
+    int(input())
     vals = list(map(int, input().split()))
     weights = list(map(int, input().split()))
     print(weighted_mean(vals, weights))
