@@ -17,7 +17,7 @@ def quartiles(arr):
 
 
 def main():
-    n = int(input().strip())
+    int(input().strip())
     data = list(map(int, input().rstrip().split()))
     quartiles(data)
 
