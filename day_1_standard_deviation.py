@@ -11,7 +11,7 @@ def std_dev(arr):
 
 
 def main():
-    n = int(input().strip())
+    int(input().strip())
     vals = list(map(int, input().rstrip().split()))
     print(std_dev(vals))
 
