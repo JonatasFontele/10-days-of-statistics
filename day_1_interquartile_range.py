@@ -14,6 +14,13 @@ def inter_quartile(values, freqs):
     # or just
     # return stats.iqr(s, interpolation='midpoint')
 
+    # Hackerrank version
+    # Q1 = median(s[:len(s)//2])
+    # if len(s) % 2:
+    #   Q3 = median(s[len(s) // 2 + 1:])
+    # else:
+    #   Q3 = median(s[len(s) // 2:])
+
 
 def main():
     int(input())
