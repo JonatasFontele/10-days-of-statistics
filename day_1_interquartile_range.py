@@ -4,8 +4,9 @@ from statistics import quantiles
 
 def inter_quartile(values, freqs):
     s = []
-    for values, freqs in zip(values, freqs):
-        s += [values] * freqs
+    for value, freq in zip(values, freqs):
+        s += [value] * freq
+        # s.extend([value] * freq) is slightly more expensive
     s.sort()
     # Should work, but hackerrank is outdated
     Q1, Q2, Q3 = [int(quartil) for quartil in quantiles(s, n=4, method="inclusive")]
@@ -15,7 +16,7 @@ def inter_quartile(values, freqs):
 
 
 def main():
-    n = int(input().strip())
+    int(input())
     val = list(map(int, input().rstrip().split()))
     freq = list(map(int, input().rstrip().split()))
     print(inter_quartile(val, freq))
