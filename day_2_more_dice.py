@@ -14,7 +14,7 @@ def calculate_dice_prob():
     # Specify the number of characters that each combination has
     permutation_list = list(product(numbers, repeat=2))
     # tuple returned with a match per loop
-    event_list = [subset for subset in permutation_list if subset[0] + subset[1] == 6]
+    event_list = [subset for subset in permutation_list if subset[0] + subset[1] == 6 and subset[0] != subset[1]]
     numerator = int(len(event_list)/gcd(len(event_list), len(permutation_list)))
     denominator = int(len(permutation_list)/gcd(len(event_list), len(permutation_list)))
     # For fractional representation
@@ -27,7 +27,7 @@ def roll_the_dice(n_simulations=100000):
         die1 = randint(1, 6)
         die2 = randint(1, 6)
         score = die1 + die2
-        if score == 6:
+        if score == 6 and die1 != die2:
             count += 1
     return count/n_simulations
 
