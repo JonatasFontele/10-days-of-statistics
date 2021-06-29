@@ -13,7 +13,7 @@ def calculate_dice_prob():
     numbers = [1, 2, 3, 4, 5, 6]
     # Specify the number of characters that each combination has
     permutation_list = list(product(numbers, repeat=2))
-    # tuple returned with a match per loop
+    # P(A and B) = P(A | B) * P(B) = 4/5 * 5/36 = 4/36 = 1/9
     event_list = [subset for subset in permutation_list if subset[0] + subset[1] == 6 and subset[0] != subset[1]]
     numerator = int(len(event_list)/gcd(len(event_list), len(permutation_list)))
     denominator = int(len(permutation_list)/gcd(len(event_list), len(permutation_list)))
