@@ -1,4 +1,5 @@
 from itertools import product
+# from fractions import Fraction
 from random import randint
 
 
@@ -19,6 +20,10 @@ def calculate_dice_prob():
     denominator = int(len(permutation_list)/gcd(len(event_list), len(permutation_list)))
     # For fractional representation
     return f"{numerator}/{denominator}"
+
+    # Could be:
+    # event_list = [subset[0] + subset[1] <= 9 for subset in permutation_list]
+    # return Fraction(event_list.count(True), len(event_list))
 
 
 def roll_the_dice(n_simulations=100000):
