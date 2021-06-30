@@ -1,12 +1,6 @@
 from itertools import product
+from fractions import Fraction
 from random import randint
-
-
-# Recursive function to return GCD(MDC) of a and b
-def gcd(a, b):
-    if a == 0:
-        return b
-    return gcd(b % a, a)
 
 
 def calculate_dice_prob():
@@ -14,11 +8,8 @@ def calculate_dice_prob():
     # Specify the number of characters that each combination has
     permutation_list = list(product(numbers, repeat=2))
     # P(A and B) = P(A | B) * P(B) = 4/5 * 5/36 = 4/36 = 1/9
-    event_list = [subset for subset in permutation_list if subset[0] + subset[1] == 6 and subset[0] != subset[1]]
-    numerator = int(len(event_list)/gcd(len(event_list), len(permutation_list)))
-    denominator = int(len(permutation_list)/gcd(len(event_list), len(permutation_list)))
-    # For fractional representation
-    return f"{numerator}/{denominator}"
+    event_list = [subset[0] + subset[1] == 6 and subset[0] != subset[1] for subset in permutation_list]
+    return Fraction(event_list.count(True), len(event_list))
 
 
 def roll_the_dice(n_simulations=100000):
