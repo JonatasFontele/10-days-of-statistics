@@ -1,6 +1,6 @@
 from itertools import product
-# from fractions import Fraction
 from random import randint
+# from fractions import Fraction
 
 
 # Recursive function to return GCD(MDC) of a and b
