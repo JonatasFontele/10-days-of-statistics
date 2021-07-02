@@ -6,9 +6,9 @@ from random import randint
 def calculate_dice_prob():
     numbers = [1, 2, 3, 4, 5, 6]
     # Specify the number of characters that each combination has
-    permutation_list = list(product(numbers, repeat=2))
+    cartesian_product_list = list(product(numbers, repeat=2))
     # P(A and B) = P(A | B) * P(B) = 4/5 * 5/36 = 4/36 = 1/9
-    event_list = [subset[0] + subset[1] == 6 and subset[0] != subset[1] for subset in permutation_list]
+    event_list = [subset[0] + subset[1] == 6 and subset[0] != subset[1] for subset in cartesian_product_list]
     return Fraction(event_list.count(True), len(event_list))
 
 
