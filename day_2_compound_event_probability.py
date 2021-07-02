@@ -14,11 +14,11 @@ def calculate_urn_prob():
     # Urn X has a 3/7 probability of giving a black ball
     # Urn Y has a 4/9 probability of giving a black ball
     # Urn Z has a 1/2 probability of giving a black ball
-    permutation_list = list(product(X, Y, Z))
+    cartesian_product_list = list(product(X, Y, Z))
 
     # P(2 red, 1 black)
     # P(Red Red Black) + P(Red Black Red) + P(Black Red Red)
-    event_list = [subset.count("r") == 2 for subset in permutation_list]
+    event_list = [subset.count("r") == 2 for subset in cartesian_product_list]
     return Fraction(event_list.count(True), len(event_list))
 
 
