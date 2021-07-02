@@ -13,16 +13,16 @@ def gcd(a, b):
 def calculate_dice_prob():
     numbers = [1, 2, 3, 4, 5, 6]
     # Specify the number of characters that each combination has
-    permutation_list = list(product(numbers, repeat=2))
+    cartesian_product_list = list(product(numbers, repeat=2))
     # tuple returned with a match per loop
-    event_list = [subset for subset in permutation_list if subset[0] + subset[1] <= 9]
-    numerator = int(len(event_list)/gcd(len(event_list), len(permutation_list)))
-    denominator = int(len(permutation_list)/gcd(len(event_list), len(permutation_list)))
+    event_list = [subset for subset in cartesian_product_list if subset[0] + subset[1] <= 9]
+    numerator = int(len(event_list)/gcd(len(event_list), len(cartesian_product_list)))
+    denominator = int(len(cartesian_product_list)/gcd(len(event_list), len(cartesian_product_list)))
     # For fractional representation
     return f"{numerator}/{denominator}"
 
     # Could be:
-    # event_list = [subset[0] + subset[1] <= 9 for subset in permutation_list]
+    # event_list = [subset[0] + subset[1] <= 9 for subset in cartesian_product_list]
     # return Fraction(event_list.count(True), len(event_list))
 
 
