@@ -1,4 +1,5 @@
 from itertools import product
+from fractions import Fraction
 from random import choice
 
 
@@ -12,19 +13,17 @@ def gcd(a, b):
 # Suppose a family has 2 children, one of which is a boy(b). What is the probability that both children are boys(bb)?
 def calculate_2children_prob():
     genders = ["b", "g"]
-    permutation_list = list(product(genders, repeat=2))
+    cartesian_product_list = list(product(genders, repeat=2))
     event_b = []
     event_bb = []
-    for subset in permutation_list:
+    for subset in cartesian_product_list:
         if "b" in subset:
             event_b.append(subset)
         if ('b', 'b') == subset:
             event_bb.append(subset)
-    numerator = int(len(event_bb)/gcd(len(event_bb), len(event_b)))
-    denominator = int(len(event_b)/gcd(len(event_bb), len(event_b)))
-    return f"{numerator}/{denominator}"
-    
-    # event_b = [subset for subset in permutation_list if "b" in subset]
+    return Fraction(len(event_bb), len(event_b))
+
+    # event_b = [subset for subset in cartesian_product_list if "b" in subset]
     # event_bb = [subset for subset in event_b if ('b', 'b') == subset]
     # Is slightly slower
 
