@@ -3,13 +3,6 @@ from fractions import Fraction
 from random import choice
 
 
-# Recursive function to return GCD(MDC) of a and b
-def gcd(a, b):
-    if a == 0:
-        return b
-    return gcd(b % a, a)
-
-
 # Suppose a family has 2 children, one of which is a boy(b). What is the probability that both children are boys(bb)?
 def calculate_2children_prob():
     genders = ["b", "g"]
