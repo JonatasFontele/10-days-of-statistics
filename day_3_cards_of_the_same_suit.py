@@ -9,7 +9,7 @@ def calculate_draw_2_cards_prob():
 
 
 def draw_2_cards(n_simulations=100000):
-    pass
+    cards = []
 
 
 def main():
